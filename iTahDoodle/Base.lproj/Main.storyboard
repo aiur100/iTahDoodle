@@ -38,6 +38,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="07r-Gm-JHy">
                                 <rect key="frame" x="16" y="58" width="343" height="589"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fXx-If-Z4K"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,6 +61,7 @@
                     <navigationItem key="navigationItem" id="2Bc-Gh-mda"/>
                     <connections>
                         <outlet property="itemTextField" destination="NLD-eK-XHn" id="Sol-MY-akf"/>
+                        <outlet property="tableView" destination="07r-Gm-JHy" id="vi6-ee-WjP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
