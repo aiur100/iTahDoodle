@@ -28,6 +28,8 @@ class TodoList: NSObject {
     func loadItems(){
         if let itemsArray = NSArray(contentsOf: fileURL as URL) as? [String] {
             items = itemsArray
+            print("items Loaded! ")
+            print(items.count)
         }
     }
     
