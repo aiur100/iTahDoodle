@@ -12,6 +12,7 @@ class TodoList: NSObject {
     private var items: [String] = []
     private let fileURL: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("todo.list", isDirectory: false);
     
+    
     func addItem(item: String){
         items.append(item)
         saveItems()
@@ -25,10 +26,16 @@ class TodoList: NSObject {
         }
     }
     
+    func deleteItem(element: Int){
+        items.remove(at: element)
+        print(element)
+        saveItems()
+        loadItems()
+    }
+    
     func loadItems(){
         if let itemsArray = NSArray(contentsOf: fileURL as URL) as? [String] {
             items = itemsArray
-            print("items Loaded! ")
             print(items.count)
         }
     }
@@ -60,4 +67,16 @@ extension TodoList: UITableViewDataSource{
         cell.textLabel!.text = item
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            deleteItem(element: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    
 }
