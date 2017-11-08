@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(sender: UIButton){
-        print("Adding: \(itemTextField.text)")
         guard let text = itemTextField.text else {
             return
         }
